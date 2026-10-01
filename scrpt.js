@@ -1,45 +1,40 @@
-console.log('Hello World')
-const resetButton = document.querySelector("#restart-button")
-let counter = 0;
-
-function count() {
-    counter = counter + 1;
-    console.log('Current clicks:' + counter)
-}
-resetButton.addEventListener("click", count);
-
-
-const square = document.querySelector('.squares');
-const squares = document.querySelectorAll('.squares');
+// HTML Elements
+const resetButton = document.querySelector('#reset');
 const currentPlayer = document.querySelector('#current-player');
+const squares = document.querySelectorAll('.square');
 
-function changeToX() {
-    square.textContent = 'X';
+// How can we simplify the code by only using the current player?
+  // Check the current player
+  // if the current player is X
+    // switch the current player text content to O
+  // else the current player is O
+    // Change the current player to X
+function switchPlayer() {
+  if (currentPlayer.textContent === 'X') {
     currentPlayer.textContent = 'O';
-}
-function changeToO() {
-    square.textContent = 'O';
+  } else {
     currentPlayer.textContent = 'X';
+  }
 }
 
-// function changeSquareValue(){
-//     let squareValue = square.textContent;
-//     if(squareValue == "X") {
-//         changeToO();
-//     }else{
-//         changeToX();
-//     }
-// }
+// How can we use the currentPlayer and switchPlayer function to simplify our code?
+function playTurn(event) {
+  // Get the div that was clicked with the event target
+  const square = event.target;
+  console.log('Event Square:', square);
 
-function changeSquare(event) {
-    console.log("click", event);
-    const square = event.target;
-    console.log("Squares", square);
-    square.textContent = "X";
+  // If the square text content is empty the play the current player
+    // SET THE CLICKED SQUARE's TEXT CONTENT TO CURRENT PLAYER
+  if (square.textContent === '') {
+    square.textContent = currentPlayer.textContent;
+  }
+    // Use the switch player function
+  switchPlayer()
+  console.log(switchPlayer)
+  console.log(currentPlayer)
 }
 
-// square.addEventListener("click", changeSquareValue);
-
+// Event Listeners
 for (const square of squares) {
-    square.addEventListener("click", changeSquare)
+  square.addEventListener('click', playTurn)
 }
