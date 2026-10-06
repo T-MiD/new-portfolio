@@ -8,6 +8,7 @@ body {
     margin: 0;
 }
 
+
 a {
     padding: 10px;
     color: white;
@@ -47,3 +48,4 @@ main {
 #player-data {
     display: flex;
 }
+

@@ -2,6 +2,8 @@
 const resetButton = document.querySelector('#reset');
 const currentPlayer = document.querySelector('#current-player');
 const squares = document.querySelectorAll('.square');
+let playerWon = document.querySelector("#player-won");
+
 
 // How can we simplify the code by only using the current player?
   // Check the current player
@@ -42,6 +44,8 @@ for (const square of squares) {
 function resetGame() {
     for (const square of squares) {
         square.textContent = "";
+        playerWon.textContent="";
+
    }
 }     currentPlayer.textContent = "X";
     
@@ -136,6 +140,7 @@ function checkWinner() {
     const third = squares[line[2]].textContent;
     if (first !== '' && first === second && first === third) {
       console.log(first + 'wins!');
+      playerWon.textContent = first + " Won!!";
     }
   }
 }
