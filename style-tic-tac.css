@@ -45,7 +45,23 @@ main {
     background-color: rgb(255, 94, 0);
 }
 
+.square:hover {
+    background-color:rgb(252, 130, 0);
+
+}
+
+.square:active {
+    background-color:rgb(255, 0, 0);
+}
+
+
 #player-data {
     display: flex;
+}
+
+
+.project-list {
+    border:solid 1px;
+    background-color:black;
 }
 
